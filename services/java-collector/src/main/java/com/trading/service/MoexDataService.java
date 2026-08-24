@@ -37,7 +37,6 @@ public class MoexDataService {
      */
     public List<CandleData> fetchCandles(String security, String from, String till) {
         log.info("Loading candles for {} from {} to {}", security, from, till);
-
         String url = String.format(
                 "%s/engines/stock/markets/shares/boards/TQBR/securities/%s/candles.json?interval=24&from=%s&till=%s",
                 baseUrl, security, from, till);
@@ -70,7 +69,7 @@ public class MoexDataService {
      * Получение свечей за последние 30 дней
      */
     public List<CandleData> fetchRecentCandles(String security) {
-        return fetchRecentCandles(security, 30);
+        return fetchRecentCandles(security, 100);
     }
 
     /**

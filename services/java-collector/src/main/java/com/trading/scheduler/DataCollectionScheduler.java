@@ -23,6 +23,7 @@ public class DataCollectionScheduler {
     private final DataWriterService dataWriterService;
     private static final Logger log = LoggerFactory.getLogger(DataCollectionScheduler.class);
 
+
     @Scheduled(fixedDelay = 60000)
     public void collectData() {
         log.info("Starting a data collection task from MOEX " + LocalDateTime.now());
@@ -31,7 +32,9 @@ public class DataCollectionScheduler {
         for (String security : securities) {
             try {
                 List<CandleData> allCandles = moexDataService.fetchCandles(
-                        security, "2025-01-01", "2026-12-31");
+                        security,
+                        String.valueOf(LocalDateTime.now().toLocalDate().minusYears(1)),
+                        String.valueOf(LocalDateTime.now().toLocalDate()));
 
                 List<CandleData> filteredCandles = allCandles.stream()
                         .filter(c -> c.getTimestamp() != null)
@@ -39,13 +42,13 @@ public class DataCollectionScheduler {
                         .collect(Collectors.toList());
 
                 if (!filteredCandles.isEmpty()) {
-                     log.info("Received data for {}: {}", security, filteredCandles.size());
+                    log.info("Received data for {}: {}", security, filteredCandles.size());
                     dataWriterService.saveCandles(filteredCandles);
                 }
             } catch (Exception e) {
-                 log.info("Error receiving data for {}: {}", security, e.getMessage());
+                log.info("Error receiving data for {}: {}", security, e.getMessage());
             }
-             log.info("The survey is completed" + LocalDateTime.now());
+            log.info("The survey is completed" + LocalDateTime.now());
         }
     }
 }
