@@ -24,7 +24,7 @@ public class DataCollectionScheduler {
     private static final Logger log = LoggerFactory.getLogger(DataCollectionScheduler.class);
 
 
-    @Scheduled(fixedDelay = 60000)
+    @Scheduled(cron = "0 0 3 * * *")
     public void collectData() {
         log.info("Starting a data collection task from MOEX " + LocalDateTime.now());
         String[] securities = { "SBER", "GAZP", "LKOH", "ROSN" };
