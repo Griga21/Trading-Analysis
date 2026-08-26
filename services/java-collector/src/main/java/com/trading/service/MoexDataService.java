@@ -37,11 +37,14 @@ public class MoexDataService {
      */
     public List<CandleData> fetchCandles(String security, String from, String till) {
         log.info("Loading candles for {} from {} to {}", security, from, till);
-        String url = String.format(
-                "%s/engines/stock/markets/shares/boards/TQBR/securities/%s/candles.json?interval=24&from=%s&till=%s",
-                baseUrl, security, from, till);
+        List<CandleData> allCandles = new ArrayList<>();
+        int start = 0;
 
-        try {
+        while (true) {
+            String url = String.format(
+                    "%s/engines/stock/markets/shares/boards/TQBR/securities/%s/candles.json?interval=24&from=%s&till=%s&start=%d",
+                    baseUrl, security, from, till, start);
+
             String response = webClient.get()
                     .uri(url)
                     .header("User-Agent", "Mozilla/5.0")
@@ -49,11 +52,16 @@ public class MoexDataService {
                     .bodyToMono(String.class)
                     .block();
 
-            return parseCandles(response, security);
-        } catch (Exception e) {
-            log.error("Error loading data for {}: {}", security, e.getMessage());
-            return new ArrayList<>();
+            List<CandleData> batch = parseCandles(response, security);
+            if (batch.isEmpty()) {
+                break;
+            }
+            allCandles.addAll(batch);
+            start += 500; // размер страницы MOEX для candles.json
+            log.info("Fetched batch of {} for {}, total so far: {}", batch.size(), security, allCandles.size());
         }
+
+        return allCandles;
     }
 
     /**
@@ -69,7 +77,7 @@ public class MoexDataService {
      * Получение свечей за последние 30 дней
      */
     public List<CandleData> fetchRecentCandles(String security) {
-        return fetchRecentCandles(security, 100);
+        return fetchRecentCandles(security, 1000);
     }
 
     /**

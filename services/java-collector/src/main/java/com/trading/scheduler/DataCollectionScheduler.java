@@ -24,7 +24,7 @@ public class DataCollectionScheduler {
     private static final Logger log = LoggerFactory.getLogger(DataCollectionScheduler.class);
 
 
-    @Scheduled(cron = "0 0 3 * * *")
+    @Scheduled(cron = "0 58 10  * * *")
     public void collectData() {
         log.info("Starting a data collection task from MOEX " + LocalDateTime.now());
         String[] securities = { "SBER", "GAZP", "LKOH", "ROSN" };
@@ -33,12 +33,12 @@ public class DataCollectionScheduler {
             try {
                 List<CandleData> allCandles = moexDataService.fetchCandles(
                         security,
-                        String.valueOf(LocalDateTime.now().toLocalDate().minusYears(1)),
+                        String.valueOf(LocalDateTime.now().toLocalDate().minusYears(2)),
                         String.valueOf(LocalDateTime.now().toLocalDate()));
 
                 List<CandleData> filteredCandles = allCandles.stream()
                         .filter(c -> c.getTimestamp() != null)
-                        .filter(c -> c.getTimestamp().getYear() >= 2025)
+                        .filter(c -> c.getTimestamp().getYear() >= 2023)
                         .collect(Collectors.toList());
 
                 if (!filteredCandles.isEmpty()) {
