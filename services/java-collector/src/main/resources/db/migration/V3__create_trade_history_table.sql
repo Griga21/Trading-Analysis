@@ -6,8 +6,7 @@ CREATE TABLE IF NOT EXISTS trade_history (
     price DECIMAL(20, 6),
     quantity INT,
     volume DECIMAL(20, 6),
-    trade_type VARCHAR(10),
-    FOREIGN KEY (security_id) REFERENCES securities(security_id)
+    trade_type VARCHAR(10)
 );
 
 -- Индекс для быстрого поиска

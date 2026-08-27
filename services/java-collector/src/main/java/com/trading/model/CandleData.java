@@ -1,4 +1,3 @@
-// CandleData.java
 package com.trading.model;
 
 import jakarta.persistence.*;

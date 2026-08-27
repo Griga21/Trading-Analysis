@@ -1,8 +1,10 @@
-com\trading\test\TestMoexSimple.class
+com\trading\customExceptions\CollectDataException.class
 com\trading\model\CandleData.class
 com\trading\service\MoexDataService.class
-com\trading\service\DataWriterService.class
-com\trading\CollectorApplication.class
 com\trading\scheduler\DataCollectionScheduler.class
 com\trading\config\DatabaseConfig.class
 com\trading\repository\CandleRepository.class
+com\trading\loacltest\TestMoexSimple.class
+com\trading\service\DataWriterService.class
+com\trading\config\DataInitializer.class
+com\trading\CollectorApplication.class

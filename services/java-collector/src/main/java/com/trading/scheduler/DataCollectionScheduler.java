@@ -1,5 +1,6 @@
 package com.trading.scheduler;
 
+import com.trading.customExceptions.CollectDataException;
 import com.trading.model.CandleData;
 import com.trading.service.DataWriterService;
 import com.trading.service.MoexDataService;
@@ -22,18 +23,22 @@ public class DataCollectionScheduler {
     private final MoexDataService moexDataService;
     private final DataWriterService dataWriterService;
     private static final Logger log = LoggerFactory.getLogger(DataCollectionScheduler.class);
+    private String[] securities = { "SBER", "GAZP", "LKOH", "ROSN" };
 
-
-    @Scheduled(cron = "0 58 10  * * *")
+    @Scheduled(cron = "0 0 10  * * *")
     public void collectData() {
         log.info("Starting a data collection task from MOEX " + LocalDateTime.now());
-        String[] securities = { "SBER", "GAZP", "LKOH", "ROSN" };
+
+        if (securities == null || securities.length == 0) {
+            log.info("No securities specified for data collection.");
+            return;
+        }
 
         for (String security : securities) {
             try {
                 List<CandleData> allCandles = moexDataService.fetchCandles(
                         security,
-                        String.valueOf(LocalDateTime.now().toLocalDate().minusYears(2)),
+                        String.valueOf(LocalDateTime.now().toLocalDate().minusDays(1)),
                         String.valueOf(LocalDateTime.now().toLocalDate()));
 
                 List<CandleData> filteredCandles = allCandles.stream()
@@ -45,10 +50,18 @@ public class DataCollectionScheduler {
                     log.info("Received data for {}: {}", security, filteredCandles.size());
                     dataWriterService.saveCandles(filteredCandles);
                 }
-            } catch (Exception e) {
+            } catch (CollectDataException e) {
                 log.info("Error receiving data for {}: {}", security, e.getMessage());
             }
             log.info("The survey is completed" + LocalDateTime.now());
         }
+    }
+
+    public String[] getSecurities() {
+        return securities;
+    }
+
+    public void setSecurities(String[] securities) {
+        this.securities = securities;
     }
 }

@@ -8,5 +8,4 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = "com.trading.repository")
 @EnableTransactionManagement
 public class DatabaseConfig {
-    // Конфигурация базы данных через application.properties
 }
