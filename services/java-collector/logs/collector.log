@@ -96,3 +96,35 @@
 2026-08-26T10:57:04.645+03:00  INFO 7060 --- [moex-collector] [main] com.trading.CollectorApplication         : Started CollectorApplication in 5.372 seconds (process running for 5.722)
 2026-08-26T10:58:00.031+03:00  INFO 7060 --- [moex-collector] [scheduling-1] c.t.scheduler.DataCollectionScheduler    : Starting a data collection task from MOEX 2026-08-26T10:58:00.029524600
 2026-08-26T10:58:00.033+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loading candles for SBER from 2024-08-26 to 2026-08-26
+2026-08-26T10:58:01.958+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 500 candles for SBER
+2026-08-26T10:58:01.958+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Fetched batch of 500 for SBER, total so far: 500
+2026-08-26T10:58:02.051+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 127 candles for SBER
+2026-08-26T10:58:02.052+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Fetched batch of 127 for SBER, total so far: 627
+2026-08-26T10:58:02.117+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 0 candles for SBER
+2026-08-26T10:58:02.119+03:00  INFO 7060 --- [moex-collector] [scheduling-1] c.t.scheduler.DataCollectionScheduler    : Received data for SBER: 627
+2026-08-26T10:58:03.605+03:00  INFO 7060 --- [moex-collector] [scheduling-1] c.t.scheduler.DataCollectionScheduler    : The survey is completed2026-08-26T10:58:03.605236900
+2026-08-26T10:58:03.605+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loading candles for GAZP from 2024-08-26 to 2026-08-26
+2026-08-26T10:58:03.826+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 500 candles for GAZP
+2026-08-26T10:58:03.828+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Fetched batch of 500 for GAZP, total so far: 500
+2026-08-26T10:58:03.931+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 127 candles for GAZP
+2026-08-26T10:58:03.932+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Fetched batch of 127 for GAZP, total so far: 627
+2026-08-26T10:58:04.002+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 0 candles for GAZP
+2026-08-26T10:58:04.002+03:00  INFO 7060 --- [moex-collector] [scheduling-1] c.t.scheduler.DataCollectionScheduler    : Received data for GAZP: 627
+2026-08-26T10:58:05.216+03:00  INFO 7060 --- [moex-collector] [scheduling-1] c.t.scheduler.DataCollectionScheduler    : The survey is completed2026-08-26T10:58:05.216092300
+2026-08-26T10:58:05.216+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loading candles for LKOH from 2024-08-26 to 2026-08-26
+2026-08-26T10:58:05.479+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 500 candles for LKOH
+2026-08-26T10:58:05.479+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Fetched batch of 500 for LKOH, total so far: 500
+2026-08-26T10:58:05.597+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 127 candles for LKOH
+2026-08-26T10:58:05.597+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Fetched batch of 127 for LKOH, total so far: 627
+2026-08-26T10:58:05.681+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 0 candles for LKOH
+2026-08-26T10:58:05.684+03:00  INFO 7060 --- [moex-collector] [scheduling-1] c.t.scheduler.DataCollectionScheduler    : Received data for LKOH: 627
+2026-08-26T10:58:07.116+03:00  INFO 7060 --- [moex-collector] [scheduling-1] c.t.scheduler.DataCollectionScheduler    : The survey is completed2026-08-26T10:58:07.116869400
+2026-08-26T10:58:07.117+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loading candles for ROSN from 2024-08-26 to 2026-08-26
+2026-08-26T10:58:07.389+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 500 candles for ROSN
+2026-08-26T10:58:07.390+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Fetched batch of 500 for ROSN, total so far: 500
+2026-08-26T10:58:07.508+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 127 candles for ROSN
+2026-08-26T10:58:07.509+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Fetched batch of 127 for ROSN, total so far: 627
+2026-08-26T10:58:07.590+03:00  INFO 7060 --- [moex-collector] [scheduling-1] com.trading.service.MoexDataService      : Loaded 0 candles for ROSN
+2026-08-26T10:58:07.590+03:00  INFO 7060 --- [moex-collector] [scheduling-1] c.t.scheduler.DataCollectionScheduler    : Received data for ROSN: 627
+2026-08-26T10:58:09.919+03:00  INFO 7060 --- [moex-collector] [scheduling-1] c.t.scheduler.DataCollectionScheduler    : The survey is completed2026-08-26T10:58:09.919233600
+2026-08-26T15:54:07.329+03:00  WARN 7060 --- [moex-collector] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h11m27s996ms628µs900ns).

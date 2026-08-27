@@ -1,0 +1,16 @@
+**/target/
+*.class
+.idea/
+.settings/
+.project
+.classpath
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+*.egg-info/
+
+*.log
+logs/
