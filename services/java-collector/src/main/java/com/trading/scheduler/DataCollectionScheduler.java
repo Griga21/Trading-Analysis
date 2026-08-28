@@ -2,6 +2,7 @@ package com.trading.scheduler;
 
 import com.trading.model.CandleData;
 import com.trading.model.Security;
+import com.trading.repository.CandleRepository;
 import com.trading.repository.SecurityRepository;
 import com.trading.service.DataWriterService;
 import com.trading.service.MoexDataService;
@@ -13,8 +14,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -22,6 +25,7 @@ public class DataCollectionScheduler {
 
     private final MoexDataService moexDataService;
     private final DataWriterService dataWriterService;
+    private final CandleRepository candleRepository;
     private static final Logger log = LoggerFactory.getLogger(DataCollectionScheduler.class);
     private final SecurityRepository securityRepository;
 
@@ -40,10 +44,23 @@ public class DataCollectionScheduler {
 
     private void collectSecurity(String securityId) {
         try {
+            LocalDate today = LocalDate.now();
+
+            Optional<CandleData> latestCandle = candleRepository.findFirstBySecurityIdOrderByTimestampDesc(securityId);
+
+            String from = latestCandle
+                    .map(candle -> candle.getTimestamp()
+                            .toLocalDate()
+                            .minusDays(1))
+                    .orElse(today.minusYears(2))
+                    .toString();
+
+            String till = today.toString();
+            
             List<CandleData> candles = moexDataService.fetchCandles(
                     securityId,
-                    String.valueOf(LocalDateTime.now().toLocalDate().minusYears(2)),
-                    String.valueOf(LocalDateTime.now().toLocalDate()));
+                    from,
+                    till);
 
             List<CandleData> validCandles = candles.stream()
                     .filter(candle -> candle.getTimestamp() != null)
