@@ -31,15 +31,15 @@ public class DataInitializer implements CommandLineRunner {
     
     @Override
     public void run(String... args) {
-        log.info("=== ПРОВЕРКА БАЗЫ ДАННЫХ ===");
+        log.info("=== CHECKING DATABASE ===");
         
         long count = candleRepository.count();
         
         if (count == 0) {
-            log.info("База данных пуста. Загружаем данные за последние 2 года...");
+            log.info("Database is empty. Loading data for the last 2 years...");
             loadInitialData();
         } else {
-            log.info("База данных содержит {} записей. Загрузка не требуется.", count);
+            log.info("Database contains {} records. No need to load data.", count);
         }
     }
     
@@ -49,11 +49,11 @@ public class DataInitializer implements CommandLineRunner {
         String till = LocalDate.now().toString();
         String from = LocalDate.now().minusYears(2).toString();
         
-        log.info("Период загрузки: {} - {}", from, till);
+        log.info("Period of loading: {} - {}", from, till);
         
         for (String security : securities) {
             try {
-                log.info("Загрузка данных для {}...", security);
+                log.info("Loading data for {}...", security);
                 
                 List<CandleData> candles = moexDataService.fetchCandles(
                     security, from, till
@@ -61,16 +61,16 @@ public class DataInitializer implements CommandLineRunner {
                 
                 if (!candles.isEmpty()) {
                     dataWriterService.saveCandles(candles);
-                    log.info("{}: загружено {} свечей", security, candles.size());
+                    log.info("{}: loaded {} candles", security, candles.size());
                 } else {
-                    log.warn("{}: нет данных за указанный период", security);
+                    log.warn("{}: no data available for the specified period", security);
                 }
                 
             } catch (Exception e) {
-                log.error("Ошибка загрузки {}: {}", security, e.getMessage());
+                log.error("Error loading {}: {}", security, e.getMessage());
             }
         }
         
-        log.info("=== НАЧАЛЬНАЯ ЗАГРУЗКА ЗАВЕРШЕНА ===");
+        log.info("=== UPDATE INITIAL DATA IS ENDING ===");
     }
 }

@@ -3185,3 +3185,14 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: ошибка синтаксиса (примерн
 2026-08-27T11:47:16.923+03:00  INFO 21416 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for LKOH
 2026-08-27T11:47:16.923+03:00  INFO 21416 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for LKOH, total so far: 627
 2026-08-27T11:47:16.981+03:00  INFO 21416 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for LKOH
+2026-08-27T11:47:18.354+03:00  INFO 21416 --- [moex-collector] [main] com.trading.config.DataInitializer       : LKOH: загружено 627 свечей
+2026-08-27T11:47:18.354+03:00  INFO 21416 --- [moex-collector] [main] com.trading.config.DataInitializer       : Загрузка данных для ROSN...
+2026-08-27T11:47:18.354+03:00  INFO 21416 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for ROSN from 2024-08-27 to 2026-08-27
+2026-08-27T11:47:18.725+03:00  INFO 21416 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for ROSN
+2026-08-27T11:47:18.725+03:00  INFO 21416 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for ROSN, total so far: 500
+2026-08-27T11:47:18.840+03:00  INFO 21416 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for ROSN
+2026-08-27T11:47:18.841+03:00  INFO 21416 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for ROSN, total so far: 627
+2026-08-27T11:47:18.930+03:00  INFO 21416 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for ROSN
+2026-08-27T11:47:20.536+03:00  INFO 21416 --- [moex-collector] [main] com.trading.config.DataInitializer       : ROSN: загружено 627 свечей
+2026-08-27T11:47:20.536+03:00  INFO 21416 --- [moex-collector] [main] com.trading.config.DataInitializer       : === НАЧАЛЬНАЯ ЗАГРУЗКА ЗАВЕРШЕНА ===
+2026-08-27T14:23:11.709+03:00  WARN 21416 --- [moex-collector] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h22m2s197ms276µs600ns).
