@@ -1,5 +1,6 @@
 package com.trading.service;
 
+import com.trading.customExceptions.DataSaveWriterServiceException;
 import com.trading.model.CandleData;
 import com.trading.repository.*;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ public class DataWriterService {
                     candleRepository.save(candle);
                 }
             } catch (Exception e) {
-
+                throw new DataSaveWriterServiceException("Error saving candle data: " + e.getMessage());
             }
         }
     }

@@ -10,6 +10,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class CollectorApplication {
     public static void main(String[] args) {
         SpringApplication.run(CollectorApplication.class, args);
-        System.out.println("MOEX Collector запущен успешно!");
+        System.out.println("MOEX Collector is starting!");
     }
 }

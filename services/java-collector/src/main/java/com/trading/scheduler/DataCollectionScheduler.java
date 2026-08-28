@@ -43,7 +43,6 @@ public class DataCollectionScheduler {
 
                 List<CandleData> filteredCandles = allCandles.stream()
                         .filter(c -> c.getTimestamp() != null)
-                        .filter(c -> c.getTimestamp().getYear() >= 2023)
                         .collect(Collectors.toList());
 
                 if (!filteredCandles.isEmpty()) {
