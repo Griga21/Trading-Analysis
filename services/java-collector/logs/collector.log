@@ -394,3 +394,17 @@
 2026-08-28T13:28:22.551+03:00  INFO 21044 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for LKOH
 2026-08-28T13:28:22.551+03:00  INFO 21044 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for LKOH, total so far: 627
 2026-08-28T13:28:22.615+03:00  INFO 21044 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for LKOH
+2026-08-28T13:28:24.406+03:00  INFO 21044 --- [moex-collector] [main] com.trading.config.DataInitializer       : LKOH: loaded 627 candles
+2026-08-28T13:28:24.408+03:00  INFO 21044 --- [moex-collector] [main] com.trading.config.DataInitializer       : No candle data for MTSS. Loading the last 2 years...
+2026-08-28T13:28:24.412+03:00  INFO 21044 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for MTSS from 2024-08-28 to 2026-08-28
+2026-08-28T13:28:24.413+03:00  INFO 21044 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for MTSS from 2024-08-28 to 2026-08-28
+2026-08-28T13:28:24.659+03:00  INFO 21044 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for MTSS
+2026-08-28T13:28:24.660+03:00  INFO 21044 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for MTSS, total so far: 500
+2026-08-28T13:28:24.724+03:00  INFO 21044 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 126 candles for MTSS
+2026-08-28T13:28:24.724+03:00  INFO 21044 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 126 for MTSS, total so far: 626
+2026-08-28T13:28:24.787+03:00  INFO 21044 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for MTSS
+2026-08-28T13:28:26.540+03:00  INFO 21044 --- [moex-collector] [main] com.trading.config.DataInitializer       : MTSS: loaded 626 candles
+2026-08-28T13:28:26.540+03:00  INFO 21044 --- [moex-collector] [main] com.trading.config.DataInitializer       : === INITIAL DATA CHECK COMPLETED ===
+2026-08-28T13:29:30.011+03:00  INFO 21044 --- [moex-collector] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-28T13:29:30.017+03:00  INFO 21044 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-28T13:29:30.025+03:00  INFO 21044 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
