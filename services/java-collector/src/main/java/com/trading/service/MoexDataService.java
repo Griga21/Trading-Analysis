@@ -22,9 +22,6 @@ public class MoexDataService {
     @Value("${moex.api.base-url:https://iss.moex.com/iss}")
     private String baseUrl;
 
-    @Value("${moex.api.securities:SBER,GAZP,LKOH,ROSN}")
-    private String defaultSecurities;
-
     public MoexDataService() {
         this.webClient = WebClient.builder()
                 .codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(10 * 1024 * 1024))
@@ -77,7 +74,7 @@ public class MoexDataService {
      * Получение свечей за последние 30 дней
      */
     public List<CandleData> fetchRecentCandles(String security) {
-        return fetchRecentCandles(security, 1000);
+        return fetchRecentCandles(security, 30);
     }
 
     /**
@@ -226,17 +223,6 @@ public class MoexDataService {
             log.error("Error parsing list of securities: {}", e.getMessage());
         }
 
-        return securities;
-    }
-
-    /**
-     * Получение списка ценных бумаг по умолчанию
-     */
-    public List<String> getDefaultSecurities() {
-        List<String> securities = new ArrayList<>();
-        for (String s : defaultSecurities.split(",")) {
-            securities.add(s.trim());
-        }
         return securities;
     }
 }
