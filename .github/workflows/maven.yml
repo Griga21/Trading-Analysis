@@ -1,0 +1,52 @@
+
+name: Java CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: trading_data
+          POSTGRES_USER: trading_user
+          POSTGRES_PASSWORD: secret
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    
+    - name: Build with Maven
+      run: |
+        cd services/java-collector
+        mvn clean package -DskipTests
+    
+    - name: Run tests
+      run: |
+        cd services/java-collector
+        mvn test
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: java-collector
+        path: services/java-collector/target/*.jar
