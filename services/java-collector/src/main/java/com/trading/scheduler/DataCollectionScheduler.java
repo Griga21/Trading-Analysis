@@ -1,6 +1,5 @@
 package com.trading.scheduler;
 
-import com.trading.customExceptions.CollectDataException;
 import com.trading.model.CandleData;
 import com.trading.model.Security;
 import com.trading.repository.SecurityRepository;

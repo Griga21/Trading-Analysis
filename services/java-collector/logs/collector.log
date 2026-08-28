@@ -102,3 +102,238 @@
 2026-08-28T09:48:18.141+03:00  INFO 1172 --- [moex-collector] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-08-28T09:48:18.145+03:00  INFO 1172 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-08-28T09:48:18.148+03:00  INFO 1172 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-28T10:35:32.203+03:00  INFO 3948 --- [moex-collector] [main] com.trading.CollectorApplication         : Starting CollectorApplication using Java 17.0.2 with PID 3948 (C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\target\classes started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
+2026-08-28T10:35:32.207+03:00  INFO 3948 --- [moex-collector] [main] com.trading.CollectorApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-08-28T10:35:32.843+03:00  INFO 3948 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-28T10:35:33.006+03:00  INFO 3948 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 152 ms. Found 2 JPA repository interfaces.
+2026-08-28T10:35:33.923+03:00  INFO 3948 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-08-28T10:35:33.937+03:00  INFO 3948 --- [moex-collector] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-28T10:35:33.937+03:00  INFO 3948 --- [moex-collector] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-08-28T10:35:34.052+03:00  INFO 3948 --- [moex-collector] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-28T10:35:34.053+03:00  INFO 3948 --- [moex-collector] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1766 ms
+2026-08-28T10:35:34.190+03:00  INFO 3948 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-28T10:35:34.457+03:00  INFO 3948 --- [moex-collector] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3d615b2e
+2026-08-28T10:35:34.459+03:00  INFO 3948 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-28T10:35:34.550+03:00  INFO 3948 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-08-28T10:35:34.550+03:00  INFO 3948 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-08-28T10:35:34.551+03:00  INFO 3948 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : 
+2026-08-28T10:35:34.567+03:00  INFO 3948 --- [moex-collector] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/trading_data (PostgreSQL 18.3)
+2026-08-28T10:35:34.576+03:00  WARN 3948 --- [moex-collector] [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2026-08-28T10:35:34.645+03:00  INFO 3948 --- [moex-collector] [main] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.047s)
+2026-08-28T10:35:34.659+03:00  INFO 3948 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 3
+2026-08-28T10:35:34.681+03:00  INFO 3948 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "4 - create securities table"
+2026-08-28T10:35:34.760+03:00  INFO 3948 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v4 (execution time 00:00.062s)
+2026-08-28T10:35:34.878+03:00  INFO 3948 --- [moex-collector] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-28T10:35:34.952+03:00  INFO 3948 --- [moex-collector] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-08-28T10:35:35.001+03:00  INFO 3948 --- [moex-collector] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-08-28T10:35:35.324+03:00  INFO 3948 --- [moex-collector] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-28T10:35:35.414+03:00  WARN 3948 --- [moex-collector] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-28T10:35:36.298+03:00  INFO 3948 --- [moex-collector] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-28T10:35:36.371+03:00  INFO 3948 --- [moex-collector] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-28T10:35:37.055+03:00  WARN 3948 --- [moex-collector] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-28T10:35:37.471+03:00  INFO 3948 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-08-28T10:35:37.492+03:00  INFO 3948 --- [moex-collector] [main] com.trading.CollectorApplication         : Started CollectorApplication in 5.807 seconds (process running for 6.198)
+2026-08-28T10:35:37.497+03:00  INFO 3948 --- [moex-collector] [main] com.trading.config.DataInitializer       : === CHECKING DATABASE ===
+2026-08-28T10:35:37.910+03:00  INFO 3948 --- [moex-collector] [main] com.trading.config.DataInitializer       : Database contains 2508 records. No need to load data.
+2026-08-28T10:36:29.659+03:00  INFO 3948 --- [moex-collector] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-28T10:36:29.662+03:00  INFO 3948 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-28T10:36:29.675+03:00  INFO 3948 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-28T10:36:38.453+03:00  INFO 11160 --- [moex-collector] [main] com.trading.CollectorApplication         : Starting CollectorApplication using Java 17.0.2 with PID 11160 (C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\target\classes started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
+2026-08-28T10:36:38.456+03:00  INFO 11160 --- [moex-collector] [main] com.trading.CollectorApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-08-28T10:36:38.965+03:00  INFO 11160 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-28T10:36:39.149+03:00  INFO 11160 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 176 ms. Found 2 JPA repository interfaces.
+2026-08-28T10:36:39.956+03:00  INFO 11160 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-08-28T10:36:39.968+03:00  INFO 11160 --- [moex-collector] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-28T10:36:39.970+03:00  INFO 11160 --- [moex-collector] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-08-28T10:36:40.067+03:00  INFO 11160 --- [moex-collector] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-28T10:36:40.068+03:00  INFO 11160 --- [moex-collector] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1546 ms
+2026-08-28T10:36:40.211+03:00  INFO 11160 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-28T10:36:40.466+03:00  INFO 11160 --- [moex-collector] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3a1f2a1
+2026-08-28T10:36:40.468+03:00  INFO 11160 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-28T10:36:40.552+03:00  INFO 11160 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-08-28T10:36:40.553+03:00  INFO 11160 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-08-28T10:36:40.553+03:00  INFO 11160 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : 
+2026-08-28T10:36:40.574+03:00  INFO 11160 --- [moex-collector] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/trading_data (PostgreSQL 18.3)
+2026-08-28T10:36:40.583+03:00  WARN 11160 --- [moex-collector] [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2026-08-28T10:36:40.632+03:00  INFO 11160 --- [moex-collector] [main] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.035s)
+2026-08-28T10:36:40.661+03:00  INFO 11160 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-08-28T10:36:40.663+03:00  INFO 11160 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-08-28T10:36:40.747+03:00  INFO 11160 --- [moex-collector] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-28T10:36:40.808+03:00  INFO 11160 --- [moex-collector] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-08-28T10:36:40.845+03:00  INFO 11160 --- [moex-collector] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-08-28T10:36:41.093+03:00  INFO 11160 --- [moex-collector] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-28T10:36:41.154+03:00  WARN 11160 --- [moex-collector] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-28T10:36:42.012+03:00  INFO 11160 --- [moex-collector] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-28T10:36:42.089+03:00  INFO 11160 --- [moex-collector] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-28T10:36:42.768+03:00  WARN 11160 --- [moex-collector] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-28T10:36:43.114+03:00  INFO 11160 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-08-28T10:36:43.129+03:00  INFO 11160 --- [moex-collector] [main] com.trading.CollectorApplication         : Started CollectorApplication in 5.147 seconds (process running for 5.673)
+2026-08-28T10:36:43.131+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : === CHECKING DATABASE ===
+2026-08-28T10:36:43.436+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : Database is empty. Loading data for the last 2 years...
+2026-08-28T10:36:43.437+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : Period of loading: 2024-08-28 - 2026-08-28
+2026-08-28T10:36:43.438+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for SBER...
+2026-08-28T10:36:43.439+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for SBER from 2024-08-28 to 2026-08-28
+2026-08-28T10:36:47.378+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for SBER
+2026-08-28T10:36:47.379+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for SBER, total so far: 500
+2026-08-28T10:36:47.443+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for SBER
+2026-08-28T10:36:47.446+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for SBER, total so far: 627
+2026-08-28T10:36:47.517+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for SBER
+2026-08-28T10:36:48.938+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : SBER: loaded 627 candles
+2026-08-28T10:36:48.939+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for GAZP...
+2026-08-28T10:36:48.939+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for GAZP from 2024-08-28 to 2026-08-28
+2026-08-28T10:36:49.180+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for GAZP
+2026-08-28T10:36:49.180+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for GAZP, total so far: 500
+2026-08-28T10:36:49.269+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for GAZP
+2026-08-28T10:36:49.270+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for GAZP, total so far: 627
+2026-08-28T10:36:49.348+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for GAZP
+2026-08-28T10:36:50.128+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : GAZP: loaded 627 candles
+2026-08-28T10:36:50.129+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for LKOH...
+2026-08-28T10:36:50.129+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for LKOH from 2024-08-28 to 2026-08-28
+2026-08-28T10:36:50.342+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for LKOH
+2026-08-28T10:36:50.342+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for LKOH, total so far: 500
+2026-08-28T10:36:50.401+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for LKOH
+2026-08-28T10:36:50.402+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for LKOH, total so far: 627
+2026-08-28T10:36:50.465+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for LKOH
+2026-08-28T10:36:51.354+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : LKOH: loaded 627 candles
+2026-08-28T10:36:51.354+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for ROSN...
+2026-08-28T10:36:51.355+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for ROSN from 2024-08-28 to 2026-08-28
+2026-08-28T10:36:51.581+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for ROSN
+2026-08-28T10:36:51.582+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for ROSN, total so far: 500
+2026-08-28T10:36:51.720+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for ROSN
+2026-08-28T10:36:51.720+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for ROSN, total so far: 627
+2026-08-28T10:36:51.779+03:00  INFO 11160 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for ROSN
+2026-08-28T10:36:52.741+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : ROSN: loaded 627 candles
+2026-08-28T10:36:52.741+03:00  INFO 11160 --- [moex-collector] [main] com.trading.config.DataInitializer       : === UPDATE INITIAL DATA IS ENDING ===
+2026-08-28T10:39:30.836+03:00  INFO 11160 --- [moex-collector] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-28T10:39:30.845+03:00  INFO 11160 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-28T10:39:30.859+03:00  INFO 11160 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-28T10:41:16.823+03:00  INFO 6648 --- [moex-collector] [main] com.trading.CollectorApplication         : Starting CollectorApplication using Java 17.0.2 with PID 6648 (C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\target\classes started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
+2026-08-28T10:41:16.826+03:00  INFO 6648 --- [moex-collector] [main] com.trading.CollectorApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-08-28T10:41:17.589+03:00  INFO 6648 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-28T10:41:17.855+03:00  INFO 6648 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 246 ms. Found 2 JPA repository interfaces.
+2026-08-28T10:41:19.422+03:00  INFO 6648 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-08-28T10:41:19.498+03:00  INFO 6648 --- [moex-collector] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-28T10:41:19.500+03:00  INFO 6648 --- [moex-collector] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-08-28T10:41:19.699+03:00  INFO 6648 --- [moex-collector] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-28T10:41:19.700+03:00  INFO 6648 --- [moex-collector] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2799 ms
+2026-08-28T10:41:19.967+03:00  INFO 6648 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-28T10:41:20.481+03:00  INFO 6648 --- [moex-collector] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1af4955e
+2026-08-28T10:41:20.486+03:00  INFO 6648 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-28T10:41:20.722+03:00  INFO 6648 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-08-28T10:41:20.723+03:00  INFO 6648 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-08-28T10:41:20.724+03:00  INFO 6648 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : 
+2026-08-28T10:41:20.774+03:00  INFO 6648 --- [moex-collector] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/trading_data (PostgreSQL 18.3)
+2026-08-28T10:41:20.790+03:00  WARN 6648 --- [moex-collector] [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2026-08-28T10:41:20.921+03:00  INFO 6648 --- [moex-collector] [main] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.088s)
+2026-08-28T10:41:20.944+03:00  INFO 6648 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-08-28T10:41:20.951+03:00  INFO 6648 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-08-28T10:41:21.185+03:00  INFO 6648 --- [moex-collector] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-28T10:41:21.358+03:00  INFO 6648 --- [moex-collector] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-08-28T10:41:21.473+03:00  INFO 6648 --- [moex-collector] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-08-28T10:41:22.150+03:00  INFO 6648 --- [moex-collector] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-28T10:41:22.323+03:00  WARN 6648 --- [moex-collector] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-28T10:41:24.743+03:00  INFO 6648 --- [moex-collector] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-28T10:41:24.935+03:00  INFO 6648 --- [moex-collector] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-28T10:41:26.694+03:00  WARN 6648 --- [moex-collector] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-28T10:41:27.690+03:00  INFO 6648 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-08-28T10:41:27.733+03:00  INFO 6648 --- [moex-collector] [main] com.trading.CollectorApplication         : Started CollectorApplication in 11.463 seconds (process running for 12.02)
+2026-08-28T10:41:27.738+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : === CHECKING DATABASE ===
+2026-08-28T10:41:28.463+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : Database is empty. Loading data for the last 2 years...
+2026-08-28T10:41:28.543+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : Period of loading: 2024-08-28 - 2026-08-28
+2026-08-28T10:41:28.544+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for SBER...
+2026-08-28T10:41:28.545+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for SBER from 2024-08-28 to 2026-08-28
+2026-08-28T10:41:30.944+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for SBER
+2026-08-28T10:41:30.945+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for SBER, total so far: 500
+2026-08-28T10:41:31.014+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for SBER
+2026-08-28T10:41:31.014+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for SBER, total so far: 627
+2026-08-28T10:41:31.084+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for SBER
+2026-08-28T10:41:34.373+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : SBER: loaded 627 candles
+2026-08-28T10:41:34.374+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for GAZP...
+2026-08-28T10:41:34.374+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for GAZP from 2024-08-28 to 2026-08-28
+2026-08-28T10:41:34.658+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for GAZP
+2026-08-28T10:41:34.659+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for GAZP, total so far: 500
+2026-08-28T10:41:34.743+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for GAZP
+2026-08-28T10:41:34.743+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for GAZP, total so far: 627
+2026-08-28T10:41:34.826+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for GAZP
+2026-08-28T10:41:36.850+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : GAZP: loaded 627 candles
+2026-08-28T10:41:36.851+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for LKOH...
+2026-08-28T10:41:36.851+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for LKOH from 2024-08-28 to 2026-08-28
+2026-08-28T10:41:37.112+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for LKOH
+2026-08-28T10:41:37.114+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for LKOH, total so far: 500
+2026-08-28T10:41:37.273+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for LKOH
+2026-08-28T10:41:37.274+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for LKOH, total so far: 627
+2026-08-28T10:41:37.323+03:00  INFO 6648 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for LKOH
+2026-08-28T10:41:39.380+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : LKOH: loaded 627 candles
+2026-08-28T10:41:39.380+03:00  INFO 6648 --- [moex-collector] [main] com.trading.config.DataInitializer       : === UPDATE INITIAL DATA IS ENDING ===
+2026-08-28T10:47:19.230+03:00  INFO 6648 --- [moex-collector] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-28T10:47:19.260+03:00  INFO 6648 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-28T10:47:19.275+03:00  INFO 6648 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-28T10:47:32.377+03:00  INFO 15952 --- [moex-collector] [main] com.trading.CollectorApplication         : Starting CollectorApplication using Java 17.0.2 with PID 15952 (C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\target\classes started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
+2026-08-28T10:47:32.381+03:00  INFO 15952 --- [moex-collector] [main] com.trading.CollectorApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-08-28T10:47:32.964+03:00  INFO 15952 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-28T10:47:33.179+03:00  INFO 15952 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 195 ms. Found 2 JPA repository interfaces.
+2026-08-28T10:47:34.149+03:00  INFO 15952 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-08-28T10:47:34.168+03:00  INFO 15952 --- [moex-collector] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-28T10:47:34.169+03:00  INFO 15952 --- [moex-collector] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-08-28T10:47:34.291+03:00  INFO 15952 --- [moex-collector] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-28T10:47:34.292+03:00  INFO 15952 --- [moex-collector] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1844 ms
+2026-08-28T10:47:34.424+03:00  INFO 15952 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-28T10:47:34.677+03:00  INFO 15952 --- [moex-collector] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1af4955e
+2026-08-28T10:47:34.679+03:00  INFO 15952 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-28T10:47:34.765+03:00  INFO 15952 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-08-28T10:47:34.765+03:00  INFO 15952 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-08-28T10:47:34.765+03:00  INFO 15952 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : 
+2026-08-28T10:47:34.785+03:00  INFO 15952 --- [moex-collector] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/trading_data (PostgreSQL 18.3)
+2026-08-28T10:47:34.793+03:00  WARN 15952 --- [moex-collector] [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2026-08-28T10:47:34.852+03:00  INFO 15952 --- [moex-collector] [main] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.042s)
+2026-08-28T10:47:34.883+03:00  INFO 15952 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-08-28T10:47:34.887+03:00  INFO 15952 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-08-28T10:47:35.031+03:00  INFO 15952 --- [moex-collector] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-28T10:47:35.124+03:00  INFO 15952 --- [moex-collector] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-08-28T10:47:35.181+03:00  INFO 15952 --- [moex-collector] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-08-28T10:47:35.514+03:00  INFO 15952 --- [moex-collector] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-28T10:47:35.601+03:00  WARN 15952 --- [moex-collector] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-28T10:47:36.510+03:00  INFO 15952 --- [moex-collector] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-28T10:47:36.589+03:00  INFO 15952 --- [moex-collector] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-28T10:47:37.348+03:00  WARN 15952 --- [moex-collector] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-28T10:47:37.721+03:00  INFO 15952 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-08-28T10:47:37.735+03:00  INFO 15952 --- [moex-collector] [main] com.trading.CollectorApplication         : Started CollectorApplication in 5.818 seconds (process running for 6.161)
+2026-08-28T10:47:37.738+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : === CHECKING DATABASE ===
+2026-08-28T10:47:38.005+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : Database is empty. Loading data for the last 2 years...
+2026-08-28T10:47:38.032+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : Period of loading: 2024-08-28 - 2026-08-28
+2026-08-28T10:47:38.033+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for SBER...
+2026-08-28T10:47:38.033+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for SBER from 2024-08-28 to 2026-08-28
+2026-08-28T10:47:39.183+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for SBER
+2026-08-28T10:47:39.183+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for SBER, total so far: 500
+2026-08-28T10:47:39.286+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for SBER
+2026-08-28T10:47:39.287+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for SBER, total so far: 627
+2026-08-28T10:47:39.361+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for SBER
+2026-08-28T10:47:40.657+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : SBER: loaded 627 candles
+2026-08-28T10:47:40.657+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for GAZP...
+2026-08-28T10:47:40.657+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for GAZP from 2024-08-28 to 2026-08-28
+2026-08-28T10:47:40.868+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for GAZP
+2026-08-28T10:47:40.868+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for GAZP, total so far: 500
+2026-08-28T10:47:40.949+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for GAZP
+2026-08-28T10:47:40.950+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for GAZP, total so far: 627
+2026-08-28T10:47:41.007+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for GAZP
+2026-08-28T10:47:42.007+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : GAZP: loaded 627 candles
+2026-08-28T10:47:42.007+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for LKOH...
+2026-08-28T10:47:42.008+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for LKOH from 2024-08-28 to 2026-08-28
+2026-08-28T10:47:42.315+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for LKOH
+2026-08-28T10:47:42.315+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for LKOH, total so far: 500
+2026-08-28T10:47:42.401+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for LKOH
+2026-08-28T10:47:42.401+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for LKOH, total so far: 627
+2026-08-28T10:47:42.468+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for LKOH
+2026-08-28T10:47:43.322+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : LKOH: loaded 627 candles
+2026-08-28T10:47:43.322+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for MTSS...
+2026-08-28T10:47:43.322+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for MTSS from 2024-08-28 to 2026-08-28
+2026-08-28T10:47:43.541+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 500 candles for MTSS
+2026-08-28T10:47:43.542+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 500 for MTSS, total so far: 500
+2026-08-28T10:47:43.635+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 126 candles for MTSS
+2026-08-28T10:47:43.635+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 126 for MTSS, total so far: 626
+2026-08-28T10:47:43.709+03:00  INFO 15952 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for MTSS
+2026-08-28T10:47:44.792+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : MTSS: loaded 626 candles
+2026-08-28T10:47:44.793+03:00  INFO 15952 --- [moex-collector] [main] com.trading.config.DataInitializer       : === UPDATE INITIAL DATA IS ENDING ===
+2026-08-28T11:01:47.882+03:00  INFO 15952 --- [moex-collector] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-28T11:01:47.923+03:00  INFO 15952 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-28T11:01:47.950+03:00  INFO 15952 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,9 +1,14 @@
 package com.trading.config;
 
 import com.trading.model.CandleData;
+import com.trading.model.Security;
 import com.trading.repository.CandleRepository;
+import com.trading.repository.SecurityRepository;
 import com.trading.service.DataWriterService;
 import com.trading.service.MoexDataService;
+
+import lombok.RequiredArgsConstructor;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -13,21 +18,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(DataInitializer.class);
     
     private final CandleRepository candleRepository;
     private final MoexDataService moexDataService;
     private final DataWriterService dataWriterService;
+    private final SecurityRepository securityRepository;
     
-    public DataInitializer(
-            CandleRepository candleRepository,
-            MoexDataService moexDataService,
-            DataWriterService dataWriterService) {
-        this.candleRepository = candleRepository;
-        this.moexDataService = moexDataService;
-        this.dataWriterService = dataWriterService;
-    }
     
     @Override
     public void run(String... args) {
@@ -44,7 +43,9 @@ public class DataInitializer implements CommandLineRunner {
     }
     
     private void loadInitialData() {
-        String[] securities = {"SBER", "GAZP", "LKOH", "ROSN"};
+        String[] securities = securityRepository.findAll().stream()
+                .map(Security::getSecurityId)
+                .toArray(String[]::new);
         
         String till = LocalDate.now().toString();
         String from = LocalDate.now().minusYears(2).toString();

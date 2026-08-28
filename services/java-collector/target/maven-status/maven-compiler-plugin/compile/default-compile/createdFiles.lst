@@ -1,10 +1,14 @@
 com\trading\customExceptions\CollectDataException.class
 com\trading\model\CandleData.class
+com\trading\repository\SecurityRepository.class
 com\trading\service\MoexDataService.class
 com\trading\scheduler\DataCollectionScheduler.class
 com\trading\config\DatabaseConfig.class
+com\trading\customExceptions\DataSaveWriterServiceException.class
+com\trading\model\Security.class
 com\trading\repository\CandleRepository.class
 com\trading\loacltest\TestMoexSimple.class
 com\trading\service\DataWriterService.class
 com\trading\config\DataInitializer.class
 com\trading\CollectorApplication.class
+com\trading\service\SecurityService.class
