@@ -1,5 +1,6 @@
 package com.trading.config;
 
+import com.trading.customExceptions.DataSaveWriterServiceException;
 import com.trading.model.CandleData;
 import com.trading.model.Security;
 import com.trading.repository.CandleRepository;
@@ -79,7 +80,7 @@ public class DataInitializer implements CommandLineRunner {
             } else {
                 log.warn("{}: no data available for {}", security, security);
             }
-        } catch (Exception e) {
+        } catch (DataSaveWriterServiceException e) {
             log.error("Error loading data for {}", security, e);
         }
     }

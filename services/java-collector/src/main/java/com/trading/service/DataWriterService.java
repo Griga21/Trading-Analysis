@@ -32,7 +32,7 @@ public class DataWriterService {
                 if (!exists) {
                     candleRepository.save(candle);
                 }
-            } catch (Exception e) {
+            } catch (DataSaveWriterServiceException e) {
                 throw new DataSaveWriterServiceException("Error saving candle data: " + e.getMessage());
             }
         }

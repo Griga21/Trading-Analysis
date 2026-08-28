@@ -1,5 +1,6 @@
 package com.trading.scheduler;
 
+import com.trading.customExceptions.DataSaveWriterServiceException;
 import com.trading.model.CandleData;
 import com.trading.model.Security;
 import com.trading.repository.CandleRepository;
@@ -75,7 +76,7 @@ public class DataCollectionScheduler {
                 dataWriterService.saveCandles(validCandles);
                 log.info("Collected {} candles for {}", validCandles.size(), securityId);
             }
-        } catch (Exception e) {
+        } catch (DataSaveWriterServiceException e) {
             log.error("Failed to collect data for {}", securityId, e);
         }
     }
