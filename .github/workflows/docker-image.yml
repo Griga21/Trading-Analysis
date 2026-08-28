@@ -1,0 +1,34 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Build Java image
+      run: |
+        cd services/java-collector
+        docker build -t ghcr.io/${{ github.repository }}/java-collector:latest .
+    
+    - name: Build Python image
+      run: |
+        cd services/python-analytics
+        docker build -t ghcr.io/${{ github.repository }}/python-analytics:latest .
+    
+    - name: Push images
+      run: |
+        docker push ghcr.io/${{ github.repository }}/java-collector:latest
+        docker push ghcr.io/${{ github.repository }}/python-analytics:latest
