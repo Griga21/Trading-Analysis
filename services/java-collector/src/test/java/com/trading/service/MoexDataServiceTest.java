@@ -18,6 +18,7 @@ public class MoexDataServiceTest {
     
     @Test
     void shouldGetCandels(){
-        moexDataService.fetchRecentCandles(null);
+        moexDataService.fetchRecentCandles("GAZP");
+
     }
 }
