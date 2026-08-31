@@ -125,7 +125,7 @@ class MainWindow(QMainWindow):
         
         panel.addWidget(QLabel("Период (дней):"))
         self.period_spin = QSpinBox()
-        self.period_spin.setRange(7, 365)
+        self.period_spin.setRange(7, 900)
         self.period_spin.setValue(30)
         self.period_spin.valueChanged.connect(self.on_period_changed)
         panel.addWidget(self.period_spin)
@@ -148,7 +148,7 @@ class MainWindow(QMainWindow):
         self.cb_price.stateChanged.connect(self.on_lines_changed)
         panel.addWidget(self.cb_price)
         
-        self.cb_sma20 = QCheckBox("SMA 20")
+        self.cb_sma20 = QCheckBox("SMA 200")
         self.cb_sma20.setChecked(True)
         self.cb_sma20.stateChanged.connect(self.on_lines_changed)
         panel.addWidget(self.cb_sma20)
@@ -157,6 +157,11 @@ class MainWindow(QMainWindow):
         self.cb_sma50.setChecked(True)
         self.cb_sma50.stateChanged.connect(self.on_lines_changed)
         panel.addWidget(self.cb_sma50)
+        
+        self.cb_ema20 = QCheckBox("EMA 20")
+        self.cb_ema20.setChecked(True)
+        self.cb_ema20.stateChanged.connect(self.on_lines_changed)
+        panel.addWidget(self.cb_ema20)
         
         self.cb_avg = QCheckBox("Средняя цена")
         self.cb_avg.setChecked(False)
@@ -284,6 +289,8 @@ class MainWindow(QMainWindow):
                 return
             
             df = self.analysis_service.calculate_indicators(df)
+            df = self.analysis_service.detect_ma_crossover(df, fast_col='SMA_200', slow_col='SMA_50')
+            
             self.current_data = df
             
             self.update_price_plot(df)
@@ -326,14 +333,14 @@ class MainWindow(QMainWindow):
                                 pen=pg.mkPen('#00ff88', width=2),
                                 name='Средняя цена')
         
-        # SMA 20
-        if self.cb_sma20.isChecked() and 'SMA_20' in df.columns:
-            valid = df.dropna(subset=['SMA_20'])
+        # SMA 200
+        if self.cb_sma20.isChecked() and 'SMA_200' in df.columns:
+            valid = df.dropna(subset=['SMA_200'])
             if not valid.empty:
                 self.price_plot.plot(valid.index.astype(np.int64) // 10**9,
-                                    valid['SMA_20'].values,
+                                    valid['SMA_200'].values,
                                     pen=pg.mkPen('y', width=2),
-                                    name='SMA 20')
+                                    name='SMA 200')
         
         # SMA 50
         if self.cb_sma50.isChecked() and 'SMA_50' in df.columns:
@@ -343,6 +350,32 @@ class MainWindow(QMainWindow):
                                     valid['SMA_50'].values,
                                     pen=pg.mkPen('b', width=2),
                                     name='SMA 50')
+        
+        # EMA 20
+        if self.cb_ema20.isChecked() and 'EMA_20' in df.columns:
+            valid = df.dropna(subset=['EMA_20'])
+            if not valid.empty:
+                self.price_plot.plot(valid.index.astype(np.int64) // 10**9,
+                                    valid['EMA_20'].values,
+                                    pen=pg.mkPen('r', width=2),
+                                    name='EMA 20')
+                
+        # EMA 20
+        if self.cb_ema20.isChecked() and 'EMA_20' in df.columns:
+            valid = df.dropna(subset=['golden_cross'])
+            if not valid.empty:
+                self.price_plot.plot(valid.index.astype(np.int64) // 10**9,
+                                    valid['golden_cross'].values,
+                                    pen=pg.mkPen('r', width=2),
+                                    name='golden_cross')
+        # EMA 20
+        if self.cb_ema20.isChecked() and 'death_cross' in df.columns:
+            valid = df.dropna(subset=['death_cross'])
+            if not valid.empty:
+                self.price_plot.plot(valid.index.astype(np.int64) // 10**9,
+                                    valid['death_cross'].values,
+                                    pen=pg.mkPen('r', width=2),
+                                    name='EMA 20')
         
         # Bollinger Bands
         if self.cb_bollinger.isChecked() and 'BB_upper' in df.columns:

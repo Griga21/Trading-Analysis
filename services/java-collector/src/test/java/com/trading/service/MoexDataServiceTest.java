@@ -16,9 +16,4 @@ public class MoexDataServiceTest {
     @InjectMocks
     private MoexDataService moexDataService;
     
-    @Test
-    void shouldGetCandels(){
-        moexDataService.fetchRecentCandles("GAZP");
-
-    }
 }

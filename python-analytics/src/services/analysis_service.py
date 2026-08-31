@@ -12,8 +12,9 @@ class AnalysisService:
         df = df.copy()
         
         # Скользящие средние
-        df['SMA_20'] = df['close'].rolling(window=20).mean()
+        df['SMA_200'] = df['close'].rolling(window=200).mean()
         df['SMA_50'] = df['close'].rolling(window=50).mean()
+        df['EMA_20'] = df['close'].ewm(span=20, adjust=False).mean()
         
         # RSI
         delta = df['close'].diff()
@@ -48,3 +49,13 @@ class AnalysisService:
             'high_52w': df['high'].tail(252).max() if len(df) >= 252 else df['high'].max(),
             'low_52w': df['low'].tail(252).min() if len(df) >= 252 else df['low'].min(),
         }
+        
+    def detect_ma_crossover(self, df: pd.DataFrame, fast_col='SMA_20', slow_col='SMA_50') -> pd.DataFrame:
+        df = df.copy()
+        df['ma_diff'] = df[fast_col] - df[slow_col]
+        df['ma_diff_prev'] = df['ma_diff'].shift(1)
+        
+        df['golden_cross'] = (df['ma_diff'] > 0) & (df['ma_diff_prev'] <= 0)
+        df['death_cross'] = (df['ma_diff'] < 0) & (df['ma_diff_prev'] >= 0)
+        
+        return df
