@@ -301,6 +301,7 @@ class MainWindow(QMainWindow):
             
             df = self.analysis_service.calculate_indicators(df)
             df = self.analysis_service.detect_ma_crossover(df, fast_col='SMA_200', slow_col='SMA_50')
+            df = self.analysis_service.calculate_indicators(df)
             
             self.current_data = df
             

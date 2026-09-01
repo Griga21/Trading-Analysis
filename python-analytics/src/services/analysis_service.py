@@ -59,3 +59,17 @@ class AnalysisService:
         df['death_cross'] = (df['ma_diff'] < 0) & (df['ma_diff_prev'] >= 0)
         
         return df
+    
+    def calculate_macd(self, df: pd.DataFrame) -> pd.DataFrame:
+        df = df.copy()
+        ema_12 = df['close'].ewm(span=12, adjust=False).mean()
+        ema_26 = df['close'].ewm(span=26, adjust=False).mean()
+        
+        df['MACD'] = ema_12 - ema_26
+        df['MACD_signal'] = df['MACD'].ewm(span=9, adjust=False).mean()
+        df['MACD_histogram'] = df['MACD'] - df['MACD_signal']
+        
+        df['macd_bullish_cross'] = (df['MACD'] > df['MACD_signal']) & (df['MACD'].shift(1) <= df['MACD_signal'].shift(1))
+        df['macd_bearish_cross'] = (df['MACD'] < df['MACD_signal']) & (df['MACD'].shift(1) >= df['MACD_signal'].shift(1))
+        
+        return df

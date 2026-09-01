@@ -103,3 +103,5 @@
 2026-09-01T13:36:36.656+03:00  INFO 7868 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 127 candles for MTSS
 2026-09-01T13:36:36.656+03:00  INFO 7868 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 127 for MTSS, total so far: 627
 2026-09-01T13:36:36.703+03:00  INFO 7868 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for MTSS
+2026-09-01T13:36:37.538+03:00  INFO 7868 --- [moex-collector] [main] com.trading.config.DataInitializer       : MTSS: loaded 627 candles
+2026-09-01T13:36:37.539+03:00  INFO 7868 --- [moex-collector] [main] com.trading.config.DataInitializer       : === INITIAL DATA CHECK COMPLETED ===
