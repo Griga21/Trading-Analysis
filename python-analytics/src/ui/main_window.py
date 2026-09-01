@@ -163,6 +163,17 @@ class MainWindow(QMainWindow):
         self.cb_ema20.stateChanged.connect(self.on_lines_changed)
         panel.addWidget(self.cb_ema20)
         
+        self.cb_golden_cross = QCheckBox("Golden cross")
+        self.cb_golden_cross.setChecked(True)
+        self.cb_golden_cross.stateChanged.connect(self.on_lines_changed)
+        panel.addWidget(self.cb_golden_cross)
+        
+        self.cb_death_cross = QCheckBox("Death cross")
+        self.cb_death_cross.setChecked(True)
+        self.cb_death_cross.stateChanged.connect(self.on_lines_changed)
+        panel.addWidget(self.cb_death_cross)
+        
+        
         self.cb_avg = QCheckBox("Средняя цена")
         self.cb_avg.setChecked(False)
         self.cb_avg.stateChanged.connect(self.on_lines_changed)
@@ -360,22 +371,36 @@ class MainWindow(QMainWindow):
                                     pen=pg.mkPen('r', width=2),
                                     name='EMA 20')
                 
-        # EMA 20
-        if self.cb_ema20.isChecked() and 'EMA_20' in df.columns:
-            valid = df.dropna(subset=['golden_cross'])
-            if not valid.empty:
-                self.price_plot.plot(valid.index.astype(np.int64) // 10**9,
-                                    valid['golden_cross'].values,
-                                    pen=pg.mkPen('r', width=2),
-                                    name='golden_cross')
-        # EMA 20
-        if self.cb_ema20.isChecked() and 'death_cross' in df.columns:
-            valid = df.dropna(subset=['death_cross'])
-            if not valid.empty:
-                self.price_plot.plot(valid.index.astype(np.int64) // 10**9,
-                                    valid['death_cross'].values,
-                                    pen=pg.mkPen('r', width=2),
-                                    name='EMA 20')
+    
+        if self.cb_golden_cross.isChecked() and 'golden_cross' in df.columns:
+            golden_points = df[df['golden_cross'] == True]
+            if not golden_points.empty:
+                golden_scatter = pg.ScatterPlotItem(
+                    x=golden_points.index.astype(np.int64) // 10**9,
+                    y=golden_points['low'].values * 0.97,  # сдвиг ниже свечи
+                    symbol='t',       # треугольник вверх
+                    size=20,          # увеличили размер
+                    brush=pg.mkBrush('lime'),
+                    pen=pg.mkPen('white', width=1.5),  # контрастная обводка
+                    name='Golden Cross'
+                )
+                self.price_plot.addItem(golden_scatter)
+                golden_scatter.setZValue(10)  # поверх свечей
+
+        if self.cb_death_cross.isChecked() and 'death_cross' in df.columns:
+            death_points = df[df['death_cross'] == True]
+            if not death_points.empty:
+                death_scatter = pg.ScatterPlotItem(
+                    x=death_points.index.astype(np.int64) // 10**9,
+                    y=death_points['high'].values * 1.03,  # сдвиг выше свечи
+                    symbol='t1',      # треугольник вниз
+                    size=20,
+                    brush=pg.mkBrush('red'),
+                    pen=pg.mkPen('white', width=1.5),
+                    name='Death Cross'
+                )
+                self.price_plot.addItem(death_scatter)
+                death_scatter.setZValue(10)
         
         # Bollinger Bands
         if self.cb_bollinger.isChecked() and 'BB_upper' in df.columns:
