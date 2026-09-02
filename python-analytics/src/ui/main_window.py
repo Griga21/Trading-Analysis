@@ -125,7 +125,7 @@ class MainWindow(QMainWindow):
         
         panel.addWidget(QLabel("Период (дней):"))
         self.period_spin = QSpinBox()
-        self.period_spin.setRange(7, 900)
+        self.period_spin.setRange(7, 1200)
         self.period_spin.setValue(30)
         self.period_spin.valueChanged.connect(self.on_period_changed)
         panel.addWidget(self.period_spin)

@@ -53,7 +53,7 @@ public class DataCollectionScheduler {
                     .map(candle -> candle.getTimestamp()
                             .toLocalDate()
                             .minusDays(1))
-                    .orElse(today.minusYears(2))
+                    .orElse(today.minusYears(5))
                     .toString();
 
             String till = today.toString();
