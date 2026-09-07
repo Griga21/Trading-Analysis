@@ -5,12 +5,17 @@
 .project
 .classpath
 
+
 __pycache__/
 *.pyc
 .venv/
 venv/
 env/
 *.egg-info/
+
+.github/ 
+github/      
+.vscode/  
 
 *.log
 logs/
