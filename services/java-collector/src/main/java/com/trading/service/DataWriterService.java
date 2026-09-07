@@ -24,17 +24,14 @@ public class DataWriterService {
         }
 
         for (CandleData candle : candles) {
-            try {
-                boolean exists = candleRepository.existsBySecurityIdAndTimestamp(
-                        candle.getSecurityId(),
-                        candle.getTimestamp());
-
-                if (!exists) {
-                    candleRepository.save(candle);
-                }
-            } catch (DataSaveWriterServiceException e) {
-                throw new DataSaveWriterServiceException("Error saving candle data: " + e.getMessage());
-            }
+            candleRepository.upsertCandle(
+                    candle.getSecurityId(),
+                    candle.getTimestamp(),
+                    candle.getOpen(),
+                    candle.getHigh(),
+                    candle.getLow(),
+                    candle.getClose(),
+                    candle.getVolume());
         }
     }
 }
