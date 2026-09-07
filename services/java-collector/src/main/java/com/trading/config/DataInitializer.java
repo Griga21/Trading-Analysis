@@ -47,7 +47,7 @@ public class DataInitializer implements CommandLineRunner {
             if (candleRepository.existsBySecurityId(security)) {
                 log.info("Database contains data for {}. No need to load data.", security);
             } else {
-                log.info("No candle data for {}. Loading the last 5 years...", security);
+                log.info("No candle data for {}. Loading the last 10 years...", security);
                 loadInitialData(security);
             }
         }
@@ -64,7 +64,7 @@ public class DataInitializer implements CommandLineRunner {
                 .map(candle -> candle.getTimestamp()
                         .toLocalDate()
                         .minusDays(1))
-                .orElse(today.minusYears(5))
+                .orElse(today.minusYears(10))
                 .toString();
 
         String till = today.toString();
