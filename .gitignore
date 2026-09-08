@@ -1,3 +1,4 @@
+.vscode/
 **/target/
 *.class
 .idea/
@@ -12,10 +13,6 @@ __pycache__/
 venv/
 env/
 *.egg-info/
-
-.github/ 
-github/      
-.vscode/  
 
 *.log
 logs/
