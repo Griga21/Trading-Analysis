@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Security {
 
     @Id
-    @Column(name = "security_id", length = 20)
+    @Column(name = "security_id", length = 20, nullable = false)
     private String securityId;
 
     @Column(name = "short_name")

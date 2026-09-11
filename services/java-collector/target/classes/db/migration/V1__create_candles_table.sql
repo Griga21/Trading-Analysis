@@ -18,3 +18,11 @@ ON candles (security_id, timestamp DESC);
 
 CREATE INDEX IF NOT EXISTS idx_candles_timestamp 
 ON candles (timestamp);
+
+ON CONFLICT (security_id, timestamp)
+DO UPDATE SET
+    open = EXCLUDED.open,
+    high = EXCLUDED.high,
+    low = EXCLUDED.low,
+    close = EXCLUDED.close,
+    volume = EXCLUDED.volume;

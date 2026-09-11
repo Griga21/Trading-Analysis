@@ -1,5 +1,5 @@
 ﻿CREATE TABLE security_indicators (
-    security_id VARCHAR,
+    security_id VARCHAR NOT NULL,
     date DATE,
     sma_20 FLOAT,
     sma_50 FLOAT,
