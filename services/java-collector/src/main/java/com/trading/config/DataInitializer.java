@@ -39,19 +39,26 @@ public class DataInitializer implements CommandLineRunner {
                 .toList();
 
         if (securities.isEmpty()) {
-            log.warn("No active securities found in the database.");
+            log.warn(
+                    "No active securities found in the database. Please add securities to the database before running the application.");
             return;
         }
 
         for (String security : securities) {
-            if (candleRepository.existsBySecurityId(security)) {
+            LocalDate targetDate = LocalDate.now();
+
+            Optional<CandleData> latestCandle = candleRepository.findFirstBySecurityIdOrderByTimestampDesc(security);
+
+            boolean isLatestForDate = latestCandle
+                    .map(candle -> candle.getTimestamp().toLocalDate().isEqual(targetDate))
+                    .orElse(false);
+            if (isLatestForDate) {
                 log.info("Database contains data for {}. No need to load data.", security);
             } else {
                 log.info("No candle data for {}. Loading the last 10 years...", security);
                 loadInitialData(security);
             }
         }
-
         log.info("=== INITIAL DATA CHECK COMPLETED ===");
     }
 
