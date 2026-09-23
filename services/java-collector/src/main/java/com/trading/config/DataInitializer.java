@@ -16,6 +16,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,28 +46,29 @@ public class DataInitializer implements CommandLineRunner {
         }
 
         for (String security : securities) {
-            LocalDate targetDate = LocalDate.now();
-
             Optional<CandleData> latestCandle = candleRepository.findFirstBySecurityIdOrderByTimestampDesc(security);
 
-            Long yearsToLoad = latestCandle
-                    .map(candle -> (long) (LocalDate.now().getYear() - candle.getTimestamp().toLocalDate().getYear()))
-                    .orElse(10L);
+            LocalDate from = latestCandle
+                    .map(candle -> candle.getTimestamp().toLocalDate())
+                    .orElse(LocalDate.now().minusYears(10));
 
-            if (yearsToLoad == 0) {
-                log.info("Database contains data for {}. No need to load data.", security);
-            } else {
+            long daysMissing = ChronoUnit.DAYS.between(from, LocalDate.now());
 
-                if (latestCandle.isPresent()) {
-                    log.info("Latest candle for {} is from {}. Loading data from the next day.", security,
-                            latestCandle.get().getTimestamp().toLocalDate());
-                } else {
-                    log.info("No candle data found for {}. Loading data for the last {} years.", security, yearsToLoad);
-                }
-                loadInitialData(security, 1L, yearsToLoad);
+            if (daysMissing == 0) {
+                log.info("Database contains up-to-date data for {}. No need to load data.", security);
+                continue;
             }
+
+            if (latestCandle.isPresent()) {
+                log.info("Latest candle for {} is from {}. Loading {} missing days.", security, from, daysMissing);
+            } else {
+                log.info("No candle data found for {}. Loading data for the last 10 years.", security);
+            }
+            loadInitialDataByPeriod(security, from.toString(), LocalDate.now().toString());
         }
+
         log.info("=== INITIAL DATA CHECK COMPLETED ===");
+
     }
 
     private void loadInitialData(String security, Long dayLong, Long yearsLong) {
