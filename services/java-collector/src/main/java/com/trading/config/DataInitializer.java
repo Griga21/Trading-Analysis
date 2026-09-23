@@ -49,20 +49,27 @@ public class DataInitializer implements CommandLineRunner {
 
             Optional<CandleData> latestCandle = candleRepository.findFirstBySecurityIdOrderByTimestampDesc(security);
 
-            boolean isLatestForDate = latestCandle
-                    .map(candle -> candle.getTimestamp().toLocalDate().isEqual(targetDate))
-                    .orElse(false);
-            if (isLatestForDate) {
+            Long yearsToLoad = latestCandle
+                    .map(candle -> (long) (LocalDate.now().getYear() - candle.getTimestamp().toLocalDate().getYear()))
+                    .orElse(10L);
+
+            if (yearsToLoad == 0) {
                 log.info("Database contains data for {}. No need to load data.", security);
             } else {
-                log.info("No candle data for {}. Loading the last 10 years...", security);
-                loadInitialData(security);
+
+                if (latestCandle.isPresent()) {
+                    log.info("Latest candle for {} is from {}. Loading data from the next day.", security,
+                            latestCandle.get().getTimestamp().toLocalDate());
+                } else {
+                    log.info("No candle data found for {}. Loading data for the last {} years.", security, yearsToLoad);
+                }
+                loadInitialData(security, 1L, yearsToLoad);
             }
         }
         log.info("=== INITIAL DATA CHECK COMPLETED ===");
     }
 
-    private void loadInitialData(String security) {
+    private void loadInitialData(String security, Long dayLong, Long yearsLong) {
         LocalDate today = LocalDate.now();
 
         Optional<CandleData> latestCandle = candleRepository.findFirstBySecurityIdOrderByTimestampDesc(security);
@@ -70,12 +77,15 @@ public class DataInitializer implements CommandLineRunner {
         String from = latestCandle
                 .map(candle -> candle.getTimestamp()
                         .toLocalDate()
-                        .minusDays(1))
-                .orElse(today.minusYears(10))
+                        .minusDays(dayLong))
+                .orElse(today.minusYears(yearsLong))
                 .toString();
 
         String till = today.toString();
+        loadInitialDataByPeriod(security, from, till);
+    }
 
+    private void loadInitialDataByPeriod(String security, String from, String till) {
         try {
             log.info("Loading data for {} from {} to {}", security, from, till);
 
