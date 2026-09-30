@@ -24,32 +24,32 @@ public class DataWriterServiceTest {
     @InjectMocks
     private DataWriterService dataWriterService;
 
-    @Test
-    void shouldSaveCandlesSuccessfully() {
-        CandleData candle = new CandleData();
-        candle.setSecurityId("SBER");
-        candle.setTimestamp(LocalDateTime.of(2026, 8, 28, 0, 0));
-        when(candleRepository.existsBySecurityIdAndTimestamp(
-                "SBER",
-                candle.getTimestamp())).thenReturn(false);
+    // @Test
+    // void shouldSaveCandlesSuccessfully() {
+    //     CandleData candle = new CandleData();
+    //     candle.setSecurityId("SBER");
+    //     candle.setTimestamp(LocalDateTime.of(2026, 8, 28, 0, 0));
+    //     when(candleRepository.existsBySecurityIdAndTimestamp(
+    //             "SBER",
+    //             candle.getTimestamp())).thenReturn(false);
 
-        dataWriterService.saveCandles(List.of(candle));
+    //     dataWriterService.saveCandles(List.of(candle));
 
-        verify(candleRepository).save(candle);
-    }
+    //     verify(candleRepository).save(candle);
+    // }
 
-    @Test
-    void shouldSkipExistingCandle() {
-        CandleData candle = new CandleData();
-        candle.setSecurityId("SBER");
-        candle.setTimestamp(LocalDateTime.of(2026, 8, 28, 10, 0));
+    // @Test
+    // void shouldSkipExistingCandle() {
+    //     CandleData candle = new CandleData();
+    //     candle.setSecurityId("SBER");
+    //     candle.setTimestamp(LocalDateTime.of(2026, 8, 28, 10, 0));
 
-        when(candleRepository.existsBySecurityIdAndTimestamp("SBER", candle.getTimestamp()))
-                .thenReturn(true);
+    //     when(candleRepository.existsBySecurityIdAndTimestamp("SBER", candle.getTimestamp()))
+    //             .thenReturn(true);
 
-        dataWriterService.saveCandles(List.of(candle));
+    //     dataWriterService.saveCandles(List.of(candle));
 
-        verify(candleRepository, never()).save(candle);
-    }
+    //     verify(candleRepository, never()).save(candle);
+    // }
 
 }

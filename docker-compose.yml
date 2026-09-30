@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: moex
+      POSTGRES_USER: moex
+      POSTGRES_PASSWORD: moex
+    ports:
+      - "5432:5432"   # проброшен наружу, чтобы локальный PyQt мог подключиться напрямую
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U moex -d moex"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  collector:
+    build:
+      context: ./services/java-collector
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/moex
+      SPRING_DATASOURCE_USERNAME: moex
+      SPRING_DATASOURCE_PASSWORD: moex
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  analytics:
+    build:
+      context: ./python-analytics
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: moex
+      DB_USER: moex
+      DB_PASSWORD: moex
+    command: ["python", "main.py"]
+    restart: "no"
+
+volumes:
+  postgres_data:

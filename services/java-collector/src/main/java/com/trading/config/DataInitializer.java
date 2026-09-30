@@ -71,22 +71,6 @@ public class DataInitializer implements CommandLineRunner {
 
     }
 
-    private void loadInitialData(String security, Long dayLong, Long yearsLong) {
-        LocalDate today = LocalDate.now();
-
-        Optional<CandleData> latestCandle = candleRepository.findFirstBySecurityIdOrderByTimestampDesc(security);
-
-        String from = latestCandle
-                .map(candle -> candle.getTimestamp()
-                        .toLocalDate()
-                        .minusDays(dayLong))
-                .orElse(today.minusYears(yearsLong))
-                .toString();
-
-        String till = today.toString();
-        loadInitialDataByPeriod(security, from, till);
-    }
-
     private void loadInitialDataByPeriod(String security, String from, String till) {
         try {
             log.info("Loading data for {} from {} to {}", security, from, till);
