@@ -3,6 +3,7 @@ package com.trading.controllers;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.trading.model.CandleData;
 import com.trading.service.interfecies.CandleService;
@@ -10,6 +11,7 @@ import com.trading.service.interfecies.CandleService;
 import lombok.RequiredArgsConstructor;
 
 @RestController 
+@RequestMapping ("/candles")
 @RequiredArgsConstructor 
 public class CandleController {
 
