@@ -22,23 +22,26 @@ public class SecuritiesControlle {
 
     private final SecuritiesService securitiesService;
 
-    @GetMapping ("/securities/getById")
-    public Security getSecurityById(String securityId) {
+    @GetMapping ("/getById")
+    public Security getSecurityById(@RequestParam String securityId) {
+        if(securityId == null || securityId.isEmpty()) {
+            throw new IllegalArgumentException("Security ID cannot be null or empty.");
+        }
         return securitiesService.getSecurityById(securityId);
     }
 
     
-    @GetMapping ("/securities/getAll")
+    @GetMapping ("/getAll")
     public List<Security> getAllSecurities() {
         return securitiesService.getAllSecurities();
     }
 
-    @PostMapping ("/securities/add")
+    @PostMapping ("/add")
     public Security addSecurity(@RequestBody Security security) {
         return securitiesService.addSecurity(security);
     }
 
-    @DeleteMapping ("/securities/delete")
+    @DeleteMapping ("/delete")
     public void deleteSecurity(@RequestParam String securityId) {
         Security security = securitiesService.getSecurityById(securityId);
         if (security != null) {

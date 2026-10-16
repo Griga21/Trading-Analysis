@@ -10,6 +10,7 @@ com\trading\customExceptions\CollectDataException.class
 com\trading\controllers\CandleController.class
 com\trading\repository\SecurityRepository.class
 com\trading\service\MoexDataService.class
+com\trading\customExceptions\SecuritiesAlreadyExistsException.class
 com\trading\scheduler\DataCollectionScheduler.class
 com\trading\customExceptions\DataSaveWriterServiceException.class
 com\trading\service\CandleServiceImp.class

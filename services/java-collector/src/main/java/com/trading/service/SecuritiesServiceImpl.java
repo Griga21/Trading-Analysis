@@ -2,9 +2,10 @@ package com.trading.service;
 
 import java.util.List;
 
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
+import com.trading.customExceptions.SecuritiesAlreadyExistsException;
+import com.trading.customExceptions.SecurityNotFoundException;
 import com.trading.model.Security;
 import com.trading.repository.SecurityRepository;
 import com.trading.service.interfecies.SecuritiesService;
@@ -20,7 +21,9 @@ public class SecuritiesServiceImpl implements SecuritiesService {
 
     @Override
     public Security getSecurityById(String securityId) {
-        return securityRepository.findById(securityId).orElse(null);
+        return securityRepository.findById(securityId)
+                    .orElseThrow(() -> 
+                        new SecurityNotFoundException("Security with ID " + securityId + " not found."));
     }
 
     @Override
@@ -30,6 +33,9 @@ public class SecuritiesServiceImpl implements SecuritiesService {
 
     @Override
     public Security addSecurity(@NotNull Security security) {
+        if (securityRepository.existsById(security.getSecurityId())) {
+            throw new SecuritiesAlreadyExistsException("Security with ID " + security.getSecurityId());
+        }
         return securityRepository.save(security);
     }
 
