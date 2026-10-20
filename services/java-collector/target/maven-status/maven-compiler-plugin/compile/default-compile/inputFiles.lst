@@ -11,6 +11,7 @@ C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com
 C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\customExceptions\CollectDataException.java
 C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\service\interfecies\SecuritiesService.java
 C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\customExceptions\DataSaveWriterServiceException.java
+C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\dto\MoexSecurityInfo.java
 C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\service\SecurityService.java
 C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\service\MoexDataService.java
 C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\CollectorApplication.java
@@ -19,3 +20,4 @@ C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com
 C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\service\SecuritiesServiceImpl.java
 C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\loacltest\TestMoexSimple.java
 C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\repository\CandleRepository.java
+C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\src\main\java\com\trading\customExceptions\SecurityNotFoundException.java

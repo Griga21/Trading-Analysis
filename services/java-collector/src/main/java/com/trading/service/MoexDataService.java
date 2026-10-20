@@ -3,15 +3,20 @@ package com.trading.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.trading.model.CandleData;
+import com.trading.dto.MoexSecurityInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.net.URI;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 @Slf4j
@@ -27,6 +32,64 @@ public class MoexDataService {
                 .codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(10 * 1024 * 1024))
                 .build();
         this.objectMapper = new ObjectMapper();
+    }
+
+    public MoexSecurityInfo fetchSecurityInfo(String securityId) {
+        String normalizedSecurityId = securityId.trim().toUpperCase(Locale.ROOT);
+        URI uri = UriComponentsBuilder.fromUriString(baseUrl)
+                .pathSegment("engines", "stock", "markets", "shares", "boards", "TQBR",
+                        "securities", normalizedSecurityId + ".json")
+                .queryParam("iss.meta", "off")
+                .queryParam("iss.only", "securities")
+                .queryParam("securities.columns", "SECID,SHORTNAME")
+                .build()
+                .encode()
+                .toUri();
+
+        JsonNode response = webClient.get()
+                .uri(uri)
+                .retrieve()
+                .bodyToMono(JsonNode.class)
+                .block(Duration.ofSeconds(10));
+
+        if (response == null) {
+            throw new IllegalStateException("MOEX returned an empty response for " + normalizedSecurityId);
+        }
+
+        JsonNode table = response.path("securities");
+        JsonNode columns = table.path("columns");
+        JsonNode rows = table.path("data");
+        int securityIdIndex = findColumnIndex(columns, "SECID");
+        int shortNameIndex = findColumnIndex(columns, "SHORTNAME");
+
+        if (!rows.isArray() || securityIdIndex < 0 || shortNameIndex < 0) {
+            throw new IllegalStateException("MOEX response does not contain security data for " + normalizedSecurityId);
+        }
+
+        for (JsonNode row : rows) {
+            JsonNode returnedSecurityId = row.path(securityIdIndex);
+            if (returnedSecurityId.asText().equalsIgnoreCase(normalizedSecurityId)) {
+                String shortName = row.path(shortNameIndex).asText();
+                if (shortName.isBlank()) {
+                    throw new IllegalStateException("MOEX returned no short name for " + normalizedSecurityId);
+                }
+                return new MoexSecurityInfo(normalizedSecurityId, shortName, "TQBR");
+            }
+        }
+
+        throw new IllegalArgumentException("Security " + normalizedSecurityId + " was not found on MOEX board TQBR");
+    }
+
+    private int findColumnIndex(JsonNode columns, String expectedName) {
+        if (!columns.isArray()) {
+            return -1;
+        }
+        for (int i = 0; i < columns.size(); i++) {
+            if (expectedName.equals(columns.get(i).asText())) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /**

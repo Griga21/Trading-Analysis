@@ -29,6 +29,8 @@ public interface SecuritiesService {
      */
     Security addSecurity(@NotNull Security security);
 
+    Security addSecurityByTicker(String ticker);
+
     /**
      * Deletes a Security object by its ID.
      *

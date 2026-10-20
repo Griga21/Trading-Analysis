@@ -41,6 +41,11 @@ public class SecuritiesControlle {
         return securitiesService.addSecurity(security);
     }
 
+    @PostMapping("/add-by-ticker")
+    public Security addSecurityByTicker(@RequestParam String ticker) {
+        return securitiesService.addSecurityByTicker(ticker);
+    }
+
     @DeleteMapping ("/delete")
     public void deleteSecurity(@RequestParam String securityId) {
         Security security = securitiesService.getSecurityById(securityId);
