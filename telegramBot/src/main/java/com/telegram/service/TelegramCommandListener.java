@@ -2,6 +2,7 @@ package com.telegram.service;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,6 +18,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TelegramCommandListener {
 
+    @Value ("${telegram.bot-token}")
+    private String botToken;
+    @Value ("${telegram.chat-id}")
+    private String chatId;
+
     private final NotificationService notifier;
     private long offset = 0;
 
@@ -25,8 +31,7 @@ public class TelegramCommandListener {
         WebClient webClient = WebClient.create("https://api.telegram.org");
         try {
             JsonNode resp = webClient.get()
-                    .uri("/bot{t}/getUpdates?offset={o}&timeout=0", "token",
-                            offset)
+                    .uri("/bot{t}/getUpdates?offset={o}&timeout=0", botToken, offset)
                     .retrieve()
                     .bodyToMono(JsonNode.class)
                     .block();
@@ -47,7 +52,7 @@ public class TelegramCommandListener {
                 notifier.sendNotification("Я получил: " + text);
             }
         } catch (Exception e) {
-            log.error("Telegram polling failed: {}", e.getMessage());
+            log.error("Telegram polling failed:");
         }
     }
 }
