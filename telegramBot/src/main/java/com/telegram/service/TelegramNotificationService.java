@@ -20,16 +20,21 @@ public class TelegramNotificationService implements NotificationService {
 
     @Override
     public void sendNotification(String message) {
+        sendNotification(chatId, message);
+    }
+
+    @Override
+    public void sendNotification(String recipientChatId, String message) {
         try {
             webClient.post()
                     .uri("/bot{token}/sendMessage", botToken)
-                    .bodyValue(Map.of("chat_id", chatId, "text", message))
+                    .bodyValue(Map.of("chat_id", recipientChatId, "text", message))
                      .retrieve()
                     .toBodilessEntity()
                     .block(Duration.ofSeconds(10));
             log.info("Telegram message sent");
         } catch (Exception e) {
-            log.error("Failed to send Telegram message: {}");
+            log.error("Failed to send Telegram message", e);
         }
     }
 }

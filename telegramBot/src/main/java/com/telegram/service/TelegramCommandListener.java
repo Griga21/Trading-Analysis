@@ -1,6 +1,5 @@
 package com.telegram.service;
 
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -9,7 +8,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import ch.qos.logback.core.util.Duration;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,6 +22,7 @@ public class TelegramCommandListener {
     private String chatId;
 
     private final NotificationService notifier;
+    private final TelegramCommandHandler commandHandler;
     private long offset = 0;
 
     @Scheduled(fixedDelay = 2000)
@@ -49,7 +48,7 @@ public class TelegramCommandListener {
                 String chatId = msg.get("chat").get("id").asText();
                 String text = msg.get("text").asText();
 
-                notifier.sendNotification("Я получил: " + text);
+                notifier.sendNotification(chatId, commandHandler.handle(text));
             }
         } catch (Exception e) {
             log.error("Telegram polling failed:");
