@@ -35,6 +35,11 @@ public class SecuritiesServiceImpl implements SecuritiesService {
     }
 
     @Override
+    public List<Security> getActiveSecurities() {
+        return securityRepository.findByActiveTrue();
+    }
+
+    @Override
     public Security addSecurity(@NotNull Security security) {
         if (securityRepository.existsById(security.getSecurityId())) {
             throw new SecuritiesAlreadyExistsException("Security with ID " + security.getSecurityId());
@@ -64,6 +69,13 @@ public class SecuritiesServiceImpl implements SecuritiesService {
         security.setBoard(info.board());
         security.setActive(true);
 
+        return securityRepository.save(security);
+    }
+
+    @Override
+    public Security setActive(String securityId, boolean active) {
+        Security security = getSecurityById(securityId);
+        security.setActive(active);
         return securityRepository.save(security);
     }
 

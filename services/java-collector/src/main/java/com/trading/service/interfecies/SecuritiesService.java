@@ -21,6 +21,8 @@ public interface SecuritiesService {
      */
     List<Security> getAllSecurities();
 
+    List<Security> getActiveSecurities();
+
     /**
      * Adds a new Security object.
      *
@@ -30,6 +32,8 @@ public interface SecuritiesService {
     Security addSecurity(@NotNull Security security);
 
     Security addSecurityByTicker(String ticker);
+
+    Security setActive(String securityId, boolean active);
 
     /**
      * Deletes a Security object by its ID.

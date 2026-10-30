@@ -1,121 +1,18 @@
-2026-10-20T14:51:37.989+03:00  INFO 19068 --- [moex-collector] [main] com.trading.CollectorApplication         : Starting CollectorApplication using Java 17.0.2 with PID 19068 (C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector\target\classes started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
-2026-10-20T14:51:37.997+03:00  INFO 19068 --- [moex-collector] [main] com.trading.CollectorApplication         : No active profile set, falling back to 1 default profile: "default"
-2026-10-20T14:51:38.735+03:00  INFO 19068 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-10-20T14:51:38.984+03:00  INFO 19068 --- [moex-collector] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 227 ms. Found 2 JPA repository interfaces.
-2026-10-20T14:51:40.285+03:00  INFO 19068 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-10-20T14:51:40.309+03:00  INFO 19068 --- [moex-collector] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-10-20T14:51:40.312+03:00  INFO 19068 --- [moex-collector] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-10-20T14:51:40.445+03:00  INFO 19068 --- [moex-collector] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-10-20T14:51:40.449+03:00  INFO 19068 --- [moex-collector] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2386 ms
-2026-10-20T14:51:40.658+03:00  INFO 19068 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-10-20T14:51:41.005+03:00  INFO 19068 --- [moex-collector] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2f95653f
-2026-10-20T14:51:41.008+03:00  INFO 19068 --- [moex-collector] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-10-20T14:51:41.108+03:00  INFO 19068 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
-2026-10-20T14:51:41.108+03:00  INFO 19068 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
-2026-10-20T14:51:41.110+03:00  INFO 19068 --- [moex-collector] [main] o.f.c.internal.license.VersionPrinter    : 
-2026-10-20T14:51:41.125+03:00  INFO 19068 --- [moex-collector] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/trading_data (PostgreSQL 18.3)
-2026-10-20T14:51:41.134+03:00  WARN 19068 --- [moex-collector] [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
-2026-10-20T14:51:41.207+03:00  INFO 19068 --- [moex-collector] [main] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.054s)
-2026-10-20T14:51:41.220+03:00  INFO 19068 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
-2026-10-20T14:51:41.223+03:00  INFO 19068 --- [moex-collector] [main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-10-20T14:51:41.316+03:00  INFO 19068 --- [moex-collector] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-10-20T14:51:41.395+03:00  INFO 19068 --- [moex-collector] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-10-20T14:51:41.442+03:00  INFO 19068 --- [moex-collector] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-10-20T14:51:41.790+03:00  INFO 19068 --- [moex-collector] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-10-20T14:51:41.884+03:00  WARN 19068 --- [moex-collector] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-10-20T14:51:42.722+03:00  INFO 19068 --- [moex-collector] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-10-20T14:51:42.796+03:00  INFO 19068 --- [moex-collector] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-10-20T14:51:43.114+03:00  INFO 19068 --- [moex-collector] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-10-20T14:51:43.619+03:00  WARN 19068 --- [moex-collector] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-10-20T14:51:44.051+03:00  INFO 19068 --- [moex-collector] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2026-10-20T14:51:44.067+03:00  INFO 19068 --- [moex-collector] [main] com.trading.CollectorApplication         : Started CollectorApplication in 6.566 seconds (process running for 6.978)
-2026-10-20T14:51:44.070+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : === CHECKING DATABASE ===
-2026-10-20T14:51:44.257+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : Latest candle for SBER is from 2026-10-16. Loading 4 missing days.
-2026-10-20T14:51:44.258+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for SBER from 2026-10-16 to 2026-10-20
-2026-10-20T14:51:44.258+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for SBER from 2026-10-16 to 2026-10-20
-2026-10-20T14:51:46.881+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 5 candles for SBER
-2026-10-20T14:51:46.881+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 5 for SBER, total so far: 5
-2026-10-20T14:51:46.986+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for SBER
-2026-10-20T14:51:47.077+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : SBER: loaded 5 candles
-2026-10-20T14:51:47.080+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : Latest candle for GAZP is from 2026-10-16. Loading 4 missing days.
-2026-10-20T14:51:47.082+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for GAZP from 2026-10-16 to 2026-10-20
-2026-10-20T14:51:47.082+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for GAZP from 2026-10-16 to 2026-10-20
-2026-10-20T14:51:47.585+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 5 candles for GAZP
-2026-10-20T14:51:47.586+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 5 for GAZP, total so far: 5
-2026-10-20T14:51:47.689+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for GAZP
-2026-10-20T14:51:47.702+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : GAZP: loaded 5 candles
-2026-10-20T14:51:47.707+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : Latest candle for LKOH is from 2026-10-16. Loading 4 missing days.
-2026-10-20T14:51:47.707+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for LKOH from 2026-10-16 to 2026-10-20
-2026-10-20T14:51:47.707+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for LKOH from 2026-10-16 to 2026-10-20
-2026-10-20T14:51:48.200+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 5 candles for LKOH
-2026-10-20T14:51:48.201+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 5 for LKOH, total so far: 5
-2026-10-20T14:51:48.814+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for LKOH
-2026-10-20T14:51:48.827+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : LKOH: loaded 5 candles
-2026-10-20T14:51:48.835+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : Latest candle for MTSS is from 2026-10-16. Loading 4 missing days.
-2026-10-20T14:51:48.836+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : Loading data for MTSS from 2026-10-16 to 2026-10-20
-2026-10-20T14:51:48.836+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loading candles for MTSS from 2026-10-16 to 2026-10-20
-2026-10-20T14:51:49.325+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 5 candles for MTSS
-2026-10-20T14:51:49.325+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Fetched batch of 5 for MTSS, total so far: 5
-2026-10-20T14:51:49.479+03:00  INFO 19068 --- [moex-collector] [main] com.trading.service.MoexDataService      : Loaded 0 candles for MTSS
-2026-10-20T14:51:49.491+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : MTSS: loaded 5 candles
-2026-10-20T14:51:49.491+03:00  INFO 19068 --- [moex-collector] [main] com.trading.config.DataInitializer       : === INITIAL DATA CHECK COMPLETED ===
-2026-10-20T14:51:54.462+03:00  INFO 19068 --- [moex-collector] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-10-20T14:51:54.463+03:00  INFO 19068 --- [moex-collector] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-10-20T14:51:54.466+03:00  INFO 19068 --- [moex-collector] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-10-20T14:51:56.465+03:00  INFO 19068 --- [moex-collector] [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1032 ms
-2026-10-20T14:52:10.640+03:00 ERROR 19068 --- [moex-collector] [http-nio-8080-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: com.trading.customExceptions.SecuritiesAlreadyExistsException: Security with ID SBER already exists in the database.] with root cause
-
-com.trading.customExceptions.SecuritiesAlreadyExistsException: Security with ID SBER already exists in the database.
-	at com.trading.service.SecuritiesServiceImpl.addSecurityByTicker(SecuritiesServiceImpl.java:57) ~[classes/:na]
-	at com.trading.controllers.SecuritiesControlle.addSecurityByTicker(SecuritiesControlle.java:46) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254) ~[spring-web-6.1.1.jar:6.1.1]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182) ~[spring-web-6.1.1.jar:6.1.1]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
+2026-10-30T10:59:46.008+03:00  INFO 13004 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Starting ApiSecuritiesControllerTest using Java 17.0.2 with PID 13004 (started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
+2026-10-30T10:59:46.023+03:00  INFO 13004 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2026-10-30T10:59:52.433+03:00  INFO 13004 --- [moex-collector] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-30T10:59:52.435+03:00  INFO 13004 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-30T10:59:52.441+03:00  INFO 13004 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2026-10-30T10:59:52.771+03:00  INFO 13004 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Started ApiSecuritiesControllerTest in 7.854 seconds (process running for 10.541)
+2026-10-30T11:00:20.077+03:00  INFO 11628 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Starting ApiSecuritiesControllerTest using Java 17.0.2 with PID 11628 (started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
+2026-10-30T11:00:20.083+03:00  INFO 11628 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2026-10-30T11:00:26.132+03:00  INFO 11628 --- [moex-collector] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-30T11:00:26.134+03:00  INFO 11628 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-30T11:00:26.141+03:00  INFO 11628 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 6 ms
+2026-10-30T11:00:26.416+03:00  INFO 11628 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Started ApiSecuritiesControllerTest in 7.245 seconds (process running for 9.288)
+2026-10-30T11:02:02.000+03:00  INFO 13288 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Starting ApiSecuritiesControllerTest using Java 17.0.2 with PID 13288 (started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
+2026-10-30T11:02:02.003+03:00  INFO 13288 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2026-10-30T11:02:12.529+03:00  INFO 13288 --- [moex-collector] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-30T11:02:12.532+03:00  INFO 13288 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-30T11:02:12.543+03:00  INFO 13288 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 8 ms
+2026-10-30T11:02:13.271+03:00  INFO 13288 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Started ApiSecuritiesControllerTest in 11.954 seconds (process running for 14.107)

@@ -3,6 +3,8 @@ package com.trading.repository;
 import com.trading.model.CandleData;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -21,6 +23,12 @@ public interface CandleRepository extends JpaRepository<CandleData, Long> {
     boolean existsBySecurityId(String securityId);
 
     Optional<CandleData> findFirstBySecurityIdOrderByTimestampDesc(String securityId);
+
+    Page<CandleData> findBySecurityIdAndTimestampGreaterThanEqualAndTimestampLessThanOrderByTimestampAsc(
+            String securityId,
+            LocalDateTime fromInclusive,
+            LocalDateTime toExclusive,
+            Pageable pageable);
 
     @Modifying
     @Query(value = """

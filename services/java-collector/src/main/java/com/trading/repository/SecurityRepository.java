@@ -1,11 +1,10 @@
 package com.trading.repository;
 
-import java.util.List;
-
+import com.trading.model.Security;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.trading.model.Security;
+import java.util.List;
 
 @Repository
 public interface SecurityRepository extends JpaRepository<Security, String> {
