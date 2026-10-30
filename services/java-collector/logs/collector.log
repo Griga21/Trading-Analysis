@@ -92,3 +92,15 @@
 2026-10-30T11:09:34.183+03:00  INFO 6768 --- [moex-collector] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-10-30T11:09:34.188+03:00  INFO 6768 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-10-30T11:09:34.195+03:00  INFO 6768 --- [moex-collector] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-30T13:22:02.298+03:00  INFO 16940 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Starting ApiSecuritiesControllerTest using Java 17.0.2 with PID 16940 (started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
+2026-10-30T13:22:02.300+03:00  INFO 16940 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2026-10-30T13:22:06.163+03:00  INFO 16940 --- [moex-collector] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-30T13:22:06.164+03:00  INFO 16940 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-30T13:22:06.166+03:00  INFO 16940 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-10-30T13:22:06.354+03:00  INFO 16940 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Started ApiSecuritiesControllerTest in 4.657 seconds (process running for 6.383)
+2026-10-30T13:54:56.913+03:00  INFO 9716 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Starting ApiSecuritiesControllerTest using Java 17.0.2 with PID 9716 (started by Acer in C:\Users\Acer\Desktop\Trading-Analysis\services\java-collector)
+2026-10-30T13:54:56.919+03:00  INFO 9716 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2026-10-30T13:55:04.819+03:00  INFO 9716 --- [moex-collector] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-30T13:55:04.820+03:00  INFO 9716 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-30T13:55:04.823+03:00  INFO 9716 --- [moex-collector] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-10-30T13:55:05.204+03:00  INFO 9716 --- [moex-collector] [main] c.t.c.ApiSecuritiesControllerTest        : Started ApiSecuritiesControllerTest in 9.666 seconds (process running for 13.242)
