@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: telegram-bot
+server:
+  port: 8085
+telegram:
+  bot-token: ${TELEGRAM_BOT_TOKEN}
+  chat-id: ${TELEGRAM_CHAT_ID}
+analytics:
+  api-token: ${ANALYTICS_API_TOKEN}

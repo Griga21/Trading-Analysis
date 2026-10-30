@@ -35,6 +35,7 @@ public class TelegramNotificationService implements NotificationService {
             log.info("Telegram message sent");
         } catch (Exception e) {
             log.error("Failed to send Telegram message", e);
+            throw new IllegalStateException("Telegram message delivery failed", e);
         }
     }
 }

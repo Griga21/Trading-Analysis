@@ -1,18 +1,26 @@
 # database_service.py
-import psycopg2
-import pandas as pd
+import os
 from typing import List, Optional
-from datetime import datetime, timedelta
+
+import pandas as pd
+import psycopg2
+
 
 class DatabaseService:
-    def __init__(self, host='localhost', port=5432, database='trading_data', 
-                 user='postgres', password='root'):
+    def __init__(
+        self,
+        host: Optional[str] = None,
+        port: Optional[int] = None,
+        database: Optional[str] = None,
+        user: Optional[str] = None,
+        password: Optional[str] = None,
+    ):
         self.connection_params = {
-            'host': host,
-            'port': port,
-            'database': database,
-            'user': user,
-            'password': password
+            'host': host or os.getenv('DB_HOST', 'localhost'),
+            'port': port or int(os.getenv('DB_PORT', '5432')),
+            'database': database or os.getenv('DB_NAME', 'trading_data'),
+            'user': user or os.getenv('DB_USER', 'postgres'),
+            'password': password or os.getenv('DB_PASSWORD', 'root')
         }
     
     def get_connection(self):
@@ -39,7 +47,7 @@ class DatabaseService:
             query += " AND timestamp >= %s"
             params.append(start_date)
         if end_date:
-            query += " AND timestamp <= %s"
+            query += " AND timestamp < CAST(%s AS date) + INTERVAL '1 day'"
             params.append(end_date)
         
         query += " ORDER BY timestamp"
@@ -54,8 +62,8 @@ class DatabaseService:
         return df
     
     def get_securities(self) -> List[str]:
-        """Получение списка доступных инструментов"""
-        query = "SELECT DISTINCT security_id FROM candles ORDER BY security_id"
+        """Get active securities configured for collection."""
+        query = "SELECT security_id FROM securities WHERE is_active = TRUE ORDER BY security_id"
         
         with self.get_connection() as conn:
             df = pd.read_sql_query(query, conn)

@@ -29,19 +29,35 @@ services:
       - "8080:8080"
     restart: unless-stopped
 
+  telegram-bot:
+    build:
+      context: ./telegramBot
+    environment:
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
+      ANALYTICS_API_TOKEN: ${ANALYTICS_API_TOKEN}
+    ports:
+      - "8085:8085"
+    restart: unless-stopped
+
   analytics:
     build:
       context: ./python-analytics
+    profiles: ["manual"]
     depends_on:
       postgres:
         condition: service_healthy
+      telegram-bot:
+        condition: service_started
     environment:
       DB_HOST: postgres
       DB_PORT: "5432"
       DB_NAME: moex
       DB_USER: moex
       DB_PASSWORD: moex
-    command: ["python", "main.py"]
+      ANALYSIS_NOTIFY_URL: http://telegram-bot:8085/api/signals
+      ANALYSIS_NOTIFY_TOKEN: ${ANALYTICS_API_TOKEN}
+    command: ["python", "run_analysis.py"]
     restart: "no"
 
 volumes:
